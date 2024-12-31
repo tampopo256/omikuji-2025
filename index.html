@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ダルマおみくじ</title>
+    <!-- ビューポートメタタグの更新（拡大表示を有効化） -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Google アナリティクスのトラッキングコード -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-V5BY4BHPD2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-V5BY4BHPD2');
+    </script>
+    <!-- ここまでGoogle アナリティクスのトラッキングコード -->
+</head>
+
+<body>
+    <!-- ポップアップの追加 -->
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <span id="close-popup" class="close-button">&times;</span>
+            <h2>ダルマを叩いて今年の運を占おう！！</h2>
+        </div>
+    </div>
+
+    <!-- 左側の飾り -->
+    <div class="decorations"></div>
+    <!-- 右側の飾り -->
+    <div class="decorations right"></div>
+
+    <div class="container">
+        <h1>ダルマを叩いておみくじを引こう！</h1>
+        <img src="daruma.png" alt="ダルマ" id="daruma">
+        <div id="result" class="result"></div>
+        <!-- クリック情報の表示を非表示に -->
+        <div id="click-info" class="click-info" style="display: none;">クリック数: 0 / 10</div>
+        <!-- おみくじを引けない場合のメッセージ -->
+        <div id="already-drawn" class="already-drawn" style="display: none;">
+            <p>既におみくじを引いています。今年の運勢は以下の通りです。</p>
+            <div id="final-result" class="final-result"></div>
+            <!-- Twitter共有ボタンの追加 -->
+            <button id="twitter-share" class="twitter-share-button">Twitterで共有</button>
+        </div>
+    </div>
+
+    <!-- 雪のアニメーションを追加 -->
+    <div id="snow-container"></div>
+
+    <!-- フッターの追加 -->
+    <footer class="footer">
+        <a href="https://twitter.com/kurosangurasu" target="_blank" rel="noopener noreferrer">
+            <img src="twitter.png" alt="Twitter" class="twitter-logo">
+        </a>
+        <span class="copyright">©2025 ダルマおみくじ | create by <a href="https://twitter.com/kurosangurasu" target="_blank"
+                rel="noopener noreferrer">@kurosangurasu</a></span>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // 雪のフレークを生成するスクリプト
+        const snowContainer = document.getElementById('snow-container');
+        const snowflakeCount = 50; // 雪の量
+
+        for (let i = 0; i < snowflakeCount; i++) {
+            const snowflake = document.createElement('div');
+            snowflake.classList.add('snowflake');
+            snowflake.style.left = Math.random() * 100 + 'vw';
+            snowflake.style.animationDuration = (Math.random() * 5 + 5) + 's';
+            snowflake.style.animationDelay = Math.random() * 5 + 's';
+            snowContainer.appendChild(snowflake);
+        }
+    </script>
+</body>
+
+</html>
